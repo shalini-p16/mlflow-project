@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/shali/PycharmProjects/mlflow_project/mlruns/0/60c4831935b64fd4b8330c003cbb38f3/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 60c4831935b64fd4b8330c003cbb38f3
+run_name: nervous-shrimp-525
+run_uuid: 60c4831935b64fd4b8330c003cbb38f3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1698073355589
+status: 1
+tags: []
+user_id: shali

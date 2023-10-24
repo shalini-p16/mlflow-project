@@ -12,10 +12,14 @@ import pandas as pd
 from sklearn.linear_model import ElasticNet
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
+import os
 
 import mlflow
 import mlflow.sklearn
 from mlflow.models import infer_signature
+
+os.environ['MLFLOW_TRACKING_USERNAME'] = 'shalini-p16'
+os.environ['MLFLOW_TRACKING_PASSWORD'] = '2c8361320d1a33a09aa48e81d1749251675ca188'
 
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
@@ -77,7 +81,14 @@ if __name__ == "__main__":
         predictions = lr.predict(train_x)
         signature = infer_signature(train_x, predictions)
 
+        ##For Remote Server(DAGSHUB)###
+        remote_server_ui = "https://dagshub.com/shalini-p16/mlflow-project.mlflow"
+        mlflow.set_tracking_uri(remote_server_ui)
+        print(f"Current tracking uri: {remote_server_ui}")
+
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+
+
 
         # Model registry does not work with file store
         if tracking_url_type_store != "file":
